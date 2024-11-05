@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
             </style>
         </head>
         <body>
-            <h1>Hello All, Happy Learning! Updated by Vishnu </h1>
+            <h1>Hello All, Happy Learning! Updated by Vishnu Varshini</h1>
             <p>This is an updated version with larger text and images.</p>
             <img src="happy-learning.jpg" alt="Happy Learning">
         </body>
