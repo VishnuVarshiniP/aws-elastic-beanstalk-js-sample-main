@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Home route - renders a dynamic page with images and text
 app.get('/', (req, res) => {
     const data = {
-        title: 'Welcome to My App! Happy Learning Modified By Vishnu',
+        title: 'Welcome to My App! Happy Learning Modified By Vishnu Varshini',
         description: 'This is an enhanced version of the app featuring images and dynamic content.',
         imagePath: '/images/happy-learning.jpg', // Points to an image in the public folder
         features: [
