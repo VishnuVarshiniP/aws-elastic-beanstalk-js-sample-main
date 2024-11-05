@@ -1,38 +1,52 @@
 const express = require('express');
-const path = require('path');
+const path = require('path'); // Required for serving static files
 const app = express();
 const port = 8080;
 
-// Set view engine to EJS for dynamic HTML rendering
-app.set('view engine', 'ejs');
+// Serve static files from the 'public' directory
+app.use(express.static('public'));
 
-// Set the 'public' folder for static assets (images, CSS, etc.)
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Home route - renders a dynamic page with images and text
+// HTML route with big text and an image
 app.get('/', (req, res) => {
-    const data = {
-        title: 'Welcome to My App! Happy Learning Modified By Vishnu Varshini',
-        description: 'This is an enhanced version of the app featuring images and dynamic content.',
-        imagePath: '/images/happy-learning.jpg', // Points to an image in the public folder
-        features: [
-            'Interactive Web Pages',
-            'Image and Text Integration',
-            'Templating with EJS',
-            'Serving Static Files',
-        ]
-    };
-    res.render('index', data);
+    res.send(`
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Welcome Page</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    background-color: #f0f0f0;
+                    text-align: center;
+                    padding: 50px;
+                }
+                h1 {
+                    font-size: 48px;
+                    color: #333;
+                }
+                p {
+                    font-size: 24px;
+                    color: #666;
+                }
+                img {
+                    max-width: 80%;
+                    height: auto;
+                    margin-top: 20px;
+                }
+            </style>
+        </head>
+        <body>
+            <h1>Hello All, Happy Learning!</h1>
+            <p>This is an updated version with larger text and images.</p>
+            <img src="/images/happy-learning.jpg" alt="Sample Image">
+        </body>
+        </html>
+    `);
 });
 
-// About route - renders an additional page with more info
-app.get('/about', (req, res) => {
-    res.render('about', {
-        title: 'About Us',
-        description: 'This app demonstrates Express with EJS templating and static file serving.'
-    });
-});
-
+// Start the server
 app.listen(port, () => {
     console.log(`App running on http://localhost:${port}`);
 });
