@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
         <body>
             <h1>Hello All, Happy Learning!</h1>
             <p>This is an updated version with larger text and images.</p>
-            <img src="../public/images/happy-learning.jpg" alt="Sample Image">
+            <img src="happy-learning.jpg" alt="Happy Learning">
         </body>
         </html>
     `);
